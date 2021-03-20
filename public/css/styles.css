@@ -1,0 +1,78 @@
+body {
+    background-color: lightgray;
+    font-family: 'Della Respira', serif;
+    color: ivory;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 300px;
+    /* color: palegreen; */
+}
+
+.headshot {
+    height: 100%;
+    width: auto;
+    border-image: black;
+}
+
+.userDetails {
+    background-color: darkslategray;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0px 15px;
+    flex-grow: 2;
+}
+
+.userDetails h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.userDetails span {
+    margin: 0;
+    display: inline-block;
+}
+
+.education {
+    background-color: palegoldenrod;
+}
+
+.projects {
+    background-color: palegreen;
+}
+
+.experience {
+    background-color: paleturquoise;
+}
+
+.contact {
+    background-color: palevioletred;
+}
+
+.education, 
+.projects, 
+.experience,
+.contact {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.education ion-icon,
+.projects ion-icon,
+.experience ion-icon,
+.contact ion-icon {
+    font-size: 50px;
+}

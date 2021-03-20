@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kate Pilbean's Portfolio Website</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Della+Respira&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    {{!-- <h1>Kate Pilbean's Portfolio Website</h1> --}}
+
+    <div class="container">
+        <nav>
+            <img class="headshot" src="/images/Pilbean, Kate 3170.jpg" alt="Kate Pilbean Headshot">
+
+            <div class="userDetails">
+                <h1>Kate Pilbean</h1>
+                <span>CODE Louisville Student</span>
+            </div>
+
+            <div class="education">
+                <ion-icon name="school-sharp"></ion-icon>
+            </div>
+
+            <div class="projects">
+                <ion-icon name="folder-outline"></ion-icon>
+            </div>
+
+            <div class="experience">
+                <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <div class="contact">
+                <ion-icon name="call"></ion-icon>
+            </div>
+        </nav>
+    </div>
+
+    <div class="educationDetails">
+         <ion-icon name="school-sharp"></ion-icon>
+         <h2>Education</h2>
+         {{!-- List education details - school, certificate, grad date - from sqlite database EducationDB.db. --}}
+    </div>
+
+    <div class="projectsDetails">
+         <ion-icon name="folder-outline"></ion-icon>
+         <h2>Projects</h2>
+         {{!-- List project details - title, description, github link - from sqlite database ProjectsDB.db. --}}
+    </div>
+
+    <div class="experienceDetails">
+         <ion-icon name="briefcase-outline"></ion-icon>
+         <h2>Experience</h2>
+         {{!-- List experience details - title, company, dates worked, description - from sqlite database ExperienceDB.db. --}}
+    </div>
+
+    <div class="contactDetails">
+         <ion-icon name="call"></ion-icon>
+         <h2>Contact Info</h2>
+         {{!-- List contact details - email address, linkedin?, etc. --}}
+    </div>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+</body>
+
+</html>
