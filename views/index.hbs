@@ -40,6 +40,10 @@
             <div class="contact">
                 <ion-icon name="call"></ion-icon>
             </div>
+
+            <div class="request">
+                <ion-icon name="mail"></ion-icon>
+            </div>
         </nav>
     </div>
 
@@ -64,7 +68,27 @@
     <div class="contactDetails">
          <ion-icon name="call"></ion-icon>
          <h2>Contact Info</h2>
-         {{!-- List contact details - email address, linkedin?, etc. --}}
+         {{!-- List contact details - email address, linkedin?, etc. --}}<br><br>
+    </div>
+
+    <div class="requestDetails">     
+         <ion-icon name="mail"></ion-icon>       
+         <h2>Submit a Request</h2>
+         <br />
+    </div>
+
+    <div class="contactForm">
+         {{!-- Fields to enter name, email, & message with submit button. --}}
+         <form method="post" action="/contactme">
+            <label>Enter Your Name<br>
+            <input type="text" name="firstName" placeholder="First Name" required>
+            <input type="text" name="lastName" placeholder="Last Name" required><br>
+            <label>Enter Your Email Address<br>
+            <input type="email" email="emailAddress" placeholder="Email Address" required><br>
+            <label>Enter Your Message<br>
+            <input type="text" name="message" placeholder="Enter your message for Kate." required><br>
+            <input type="submit" value="Contact Kate">
+        </form>
     </div>
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>

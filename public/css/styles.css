@@ -44,25 +44,30 @@ nav {
 }
 
 .education {
-    background-color: palegoldenrod;
+    background-color: lightpink;
 }
 
 .projects {
-    background-color: palegreen;
+    background-color: lightgoldenrodyellow;
 }
 
 .experience {
-    background-color: paleturquoise;
+    background-color: lightcyan;
 }
 
 .contact {
-    background-color: palevioletred;
+    background-color: lightcoral;
+}
+
+.request {
+    background-color: lightblue;
 }
 
 .education, 
 .projects, 
 .experience,
-.contact {
+.contact,
+.request {
     color: white;
     display: flex;
     justify-content: center;
@@ -73,6 +78,33 @@ nav {
 .education ion-icon,
 .projects ion-icon,
 .experience ion-icon,
-.contact ion-icon {
+.contact ion-icon,
+.request ion-icon {
     font-size: 50px;
+}
+
+.educationDetails,
+.projectsDetails,
+.experienceDetails,
+.contactDetails,
+.requestDetails {
+    color: darkslategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.educationDetails ion-icon,
+.projectsDetails ion-icon,
+.experienceDetails ion-icon,
+.contactDetails ion-icon,
+.requestDetails ion-icon {
+    font-size: 30px;
+}
+
+.contactForm {
+    color: darkslategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
