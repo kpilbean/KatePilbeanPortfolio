@@ -24,7 +24,7 @@ nav {
 }
 
 .userDetails {
-    background-color: darkslategray;
+    background-color: dimgray;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -48,11 +48,11 @@ nav {
 }
 
 .projects {
-    background-color: lightgoldenrodyellow;
+    background-color: lightblue;
 }
 
 .experience {
-    background-color: lightcyan;
+    background-color: lightseagreen;
 }
 
 .contact {
@@ -60,7 +60,7 @@ nav {
 }
 
 .request {
-    background-color: lightblue;
+    background-color: lightskyblue;
 }
 
 .education, 
@@ -88,7 +88,7 @@ nav {
 .experienceDetails,
 .contactDetails,
 .requestDetails {
-    color: darkslategray;
+    color: dimgray;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,7 +103,7 @@ nav {
 }
 
 .contactForm {
-    color: darkslategray;
+    color: dimgray;
     display: flex;
     justify-content: center;
     align-items: center;
