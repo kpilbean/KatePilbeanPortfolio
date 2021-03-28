@@ -3,16 +3,16 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
+const publicFolder = path.join(__dirname, '../public');
 
+app.use(express.json());
+app.use(express.static(publicFolder));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const publicFolder = path.join(__dirname, '../public');
-app.use(express.static(publicFolder));
-
 app.set('view engine', 'hbs');
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.render('index', {
         title: "Home",
         name: "Kate Pilbean"
@@ -27,17 +27,19 @@ app.get('/', function (req, res) {
 // SQLite Databases (Education, Projects, & Experience Sections) & Tests
 const sqlite3 = require('sqlite3').verbose();
 
-let EducationDB = new sqlite3.Database('../SQL-DB/EducationDB.db', (err) => {
+// EDUCATION SECTION
+const EducationDB = new sqlite3.Database('../SQL-DB/EducationDB.db', (err) => {
     if (err) {
         return console.error(err.message);
     } else {
         console.log('Connected to the EducationDB SQLite database.');
     }
 });
+module.exports = EducationDB;
 
 EducationDB.serialize(() => {
     EducationDB.run('CREATE TABLE Education')
-    EducationDB.each(`SELECT SchoolId as id, SchoolName as name FROM Schools`, (err, row) => {
+    EducationDB.each(`SELECT EducationId as id, SchoolName as name FROM Schools`, (err, row) => {
         if (err) {
             console.error(err.message);
         } else {
@@ -45,6 +47,16 @@ EducationDB.serialize(() => {
         }
     });
 });
+
+// SELECT * FROM [Education];
+
+// EducationDB.all([], (error, rows) => {
+//     if (error){
+//         console.log(error);
+//     }
+//     res.send(rows);
+// });
+// res.render('../SQL-DB/EducationDB.sql', {Education:rows});
 
 EducationDB.close((err) => {
     if (err) {
@@ -54,13 +66,15 @@ EducationDB.close((err) => {
     }
 });
 
-let ProjectsDB = new sqlite3.Database('../SQL-DB/ProjectsDB.db', sqlite3.OPEN_READWRITE, (err) => {
+// PROJECTS SECTION
+const ProjectsDB = new sqlite3.Database('../SQL-DB/ProjectsDB.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
         return console.error(err.message);
     } else {
         console.log('Connected to the ProjectsDB SQLite database.');
     }
 });
+module.exports = ProjectsDB;
 
 ProjectsDB.serialize(() => {
     ProjectsDB.each(`SELECT ProjectId as id, ProjectName as name FROM Projects`, (err, row) => {
@@ -80,13 +94,15 @@ ProjectsDB.close((err) => {
     }
 });
 
-let ExperienceDB = new sqlite3.Database('../SQL-DB/ExperienceDB.db', sqlite3.OPEN_READWRITE, (err) => {
+// EXPERIENCE SECTION
+const ExperienceDB = new sqlite3.Database('../SQL-DB/ExperienceDB.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
         return console.error(err.message);
     } else {
         console.log('Connected to the ExperienceDB SQLite database.');
     }
 });
+module.exports = ExperienceDB;
 
 ExperienceDB.serialize(() => {
     ExperienceDB.each(`SELECT ExperienceId as id, ExperienceName as name FROM Experience`, (err, row) => {

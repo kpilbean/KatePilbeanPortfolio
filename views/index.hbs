@@ -51,18 +51,57 @@
          <ion-icon name="school-sharp"></ion-icon>
          <h2>Education</h2>
          {{!-- List education details - school, certificate, grad date - from sqlite database EducationDB.db. --}}
+        {{!-- <p>fetch {EducationDB}</p> --}}
+        <table>
+            <tbody>
+                {{Education:rows}}
+                <tr>
+                    <td>{{EducationID}}</td>
+                    <td>{{SchoolName}}</td>
+                    <td>{{CertificateName}}</td>
+                    <td>{{GradDate}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
 
     <div class="projectsDetails">
          <ion-icon name="folder-outline"></ion-icon>
          <h2>Projects</h2>
          {{!-- List project details - title, description, github link - from sqlite database ProjectsDB.db. --}}
+        {{!-- <p>fetch {ProjectsDB}</p> --}}
+        <table>
+            <tbody>
+                {{Education:rows}}
+                <tr>
+                    <td>{{EducationID}}</td>
+                    <td>{{SchoolName}}</td>
+                    <td>{{CertificateName}}</td>
+                    <td>{{GradDate}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
 
     <div class="experienceDetails">
          <ion-icon name="briefcase-outline"></ion-icon>
          <h2>Experience</h2>
          {{!-- List experience details - title, company, dates worked, description - from sqlite database ExperienceDB.db. --}}
+        {{!-- <p>fetch {ExperienceDB}</p> --}}
+        <table>
+            <tbody>
+                {{Experience:rows}}
+                <tr>
+                    <td>{{EducationID}}</td>
+                    <td>{{SchoolName}}</td>
+                    <td>{{CertificateName}}</td>
+                    <td>{{GradDate}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
 
     <div class="contactDetails">
