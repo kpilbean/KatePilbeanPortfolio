@@ -48,7 +48,7 @@ app.post("/contactMe", (req, res) => {
 const sqlite3 = require('sqlite3').verbose();
 
 // Education Section
-const EducationDB = new sqlite3.Database('../SQL-DB/EducationDB.db', (err) => {
+const EducationDB = new sqlite3.Database('./SQL-DB/EducationDB.db', (err) => {
     if (err) {
         return console.error(err.message);
     } else {
@@ -70,7 +70,7 @@ index: (req,res) => {
 };
 
 // Projects Section
-const ProjectsDB = new sqlite3.Database('../SQL-DB/ProjectsDB.db', (err) => {
+const ProjectsDB = new sqlite3.Database('./SQL-DB/ProjectsDB.db', (err) => {
     if (err) {
         return console.error(err.message);
     } else {
@@ -92,7 +92,7 @@ index: (req,res) => {
 };
 
 // Experience Section
-const ExperienceDB = new sqlite3.Database('../SQL-DB/ExperienceDB.db', (err) => {
+const ExperienceDB = new sqlite3.Database('./SQL-DB/ExperienceDB.db', (err) => {
     if (err) {
         return console.error(err.message);
     } else {
