@@ -1,142 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kate Pilbean's Portfolio Website</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Della+Respira&display=swap">
-    <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="sitedisplay" href="https://kpilbean.github.io/KatePilbeanPortfolio/">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kate Pilbean's Portfolio Website</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Della+Respira&display=swap">
+        <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="sitedisplay" href="https://kpilbean.github.io/KatePilbeanPortfolio/">
+    </head>
 
-<body>
-    {{!-- <h1>Kate Pilbean's Portfolio Website</h1> --}}
+    <body>
+        {{!-- <h1>Kate Pilbean's Portfolio Website</h1> --}}
 
-    <div class="container">
-        <nav>
-            <img class="headshot" src="/images/Pilbean, Kate 3170.jpg" alt="Kate Pilbean Headshot">
+        <div class="container">
+            <nav>
+                <img class="headshot" src="/images/Pilbean, Kate 3170.jpg" alt="Kate Pilbean Headshot">
 
-            <div class="userDetails">
-                <h1>Kate Pilbean</h1>
-                <span>CODE Louisville Student</span>
-            </div>
+                <div class="userDetails">
+                    <h1>Kate Pilbean</h1>
+                    <span>CODE Louisville Student</span>
+                </div>
 
-            <div class="education">
-                <ion-icon name="school-sharp"></ion-icon>
-            </div>
+                <div class="education">
+                    <ion-icon name="school-sharp"></ion-icon>
+                </div>
 
-            <div class="projects">
-                <ion-icon name="folder-outline"></ion-icon>
-            </div>
+                <div class="projects">
+                    <ion-icon name="folder-outline"></ion-icon>
+                </div>
 
-            <div class="experience">
-                <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
+                <div class="experience">
+                    <ion-icon name="briefcase-outline"></ion-icon>
+                </div>
 
-            <div class="contact">
-                <ion-icon name="call"></ion-icon>
-            </div>
+                <div class="contact">
+                    <ion-icon name="call"></ion-icon>
+                </div>
 
-            <div class="request">
-                <ion-icon name="mail"></ion-icon>
-            </div>
-        </nav>
-    </div>
+                <div class="request">
+                    <ion-icon name="mail"></ion-icon>
+                </div>
+            </nav>
+        </div>
 
-    <div class="educationDetails">
-         <ion-icon name="school-sharp"></ion-icon>
-         <h2>Education</h2>
-         {{!-- List education details - school, certificate, grad date - from sqlite database EducationDB.db. --}}
-        {{!-- <p>fetch {EducationDB}</p> --}}
-        <table>
-            <tbody>
-                {{Education:rows}}
-                <tr>
-                    <td>{{EducationID}}</td>
+        <div class="educationDetails">
+            <ion-icon name="school-sharp"></ion-icon>
+            <h2>Education</h2>
+            {{!-- List education details - school, certificate, grad date - from sqlite database EducationDB.db. --}}
+            {{!-- <p>fetch {EducationDB}</p> --}}
+            <br />
+        </div>
+
+        <div class="educationDetails">
+            <table class="table table-bordered">
+                <thead class="bg-dark text-center">
+                    <tr class="text-white">
+                    <th>Education ID</th>
+                    <th>School Name</th>
+                    <th>Certificate Name</th>
+                    <th>Grad Date</th>
+                    </tr>
+                </thead>
+
+                <tbody class="text-center">
+                    {{#each Education}}
+                    <tr>
+                    <td>{{EducationId}}</td>
                     <td>{{SchoolName}}</td>
                     <td>{{CertificateName}}</td>
                     <td>{{GradDate}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
 
-    <div class="projectsDetails">
-         <ion-icon name="folder-outline"></ion-icon>
-         <h2>Projects</h2>
-         {{!-- List project details - title, description, github link - from sqlite database ProjectsDB.db. --}}
-        {{!-- <p>fetch {ProjectsDB}</p> --}}
-        <table>
-            <tbody>
-                {{Education:rows}}
-                <tr>
-                    <td>{{EducationID}}</td>
-                    <td>{{SchoolName}}</td>
-                    <td>{{CertificateName}}</td>
-                    <td>{{GradDate}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
+        <div class="projectsDetails">
+            <ion-icon name="folder-outline"></ion-icon>
+            <h2>Projects</h2>
+            {{!-- List project details - title, description, github link - from sqlite database ProjectsDB.db. --}}
+            {{!-- <p>fetch {ProjectsDB}</p> --}}
+            <br />
+        </div>
 
-    <div class="experienceDetails">
-         <ion-icon name="briefcase-outline"></ion-icon>
-         <h2>Experience</h2>
-         {{!-- List experience details - title, company, dates worked, description - from sqlite database ExperienceDB.db. --}}
-        {{!-- <p>fetch {ExperienceDB}</p> --}}
-        <table>
-            <tbody>
-                {{Experience:rows}}
-                <tr>
-                    <td>{{EducationID}}</td>
-                    <td>{{SchoolName}}</td>
-                    <td>{{CertificateName}}</td>
-                    <td>{{GradDate}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
+        <div class="projectsDetails">            
+            <table class="table table-bordered">
+                <thead class="bg-dark text-center">
+                    <tr class="text-white">
+                    <th>Project ID</th>
+                    <th>Project Name</th>
+                    <th>Description Name</th>
+                    <th>Programs Used</th>
+                    </tr>
+                </thead>
 
-    <div class="contactDetails">
-         <ion-icon name="call"></ion-icon>
-         <h2>Contact Info</h2> <br />
-         {{!-- List contact details - email address, linkedin?, etc. --}}
+                <tbody class="text-center">
+                    {{#each Projects}}
+                    <tr>
+                    <td>{{ProjectId}}</td>
+                    <td>{{ProjectName}}</td>
+                    <td>{{DescriptionName}}</td>
+                    <td>{{ProgramsUsed}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="experienceDetails">
+            <ion-icon name="briefcase-outline"></ion-icon>
+            <h2>Experience</h2>
+            {{!-- List experience details - title, company, dates worked, description - from sqlite database ExperienceDB.db. --}}
+            {{!-- <p>fetch {ExperienceDB}</p> --}}
+            <br />
+        </div>
+
+        <div class="experienceDetails">
+            <table class="table table-bordered">
+                <thead class="bg-dark text-center">
+                    <tr class="text-white">
+                    <th>Experience ID</th>
+                    <th>Experience Name</th>
+                    <th>Description Name</th>
+                    <th>Detailed Duties</th>
+                    <th>Date Range</th>
+                    </tr>
+                </thead>
+
+                <tbody class="text-center">
+                    {{#each Experience}}
+                    <tr>
+                    <td>{{ExperienceId}}</td>
+                    <td>{{ExperienceName}}</td>
+                    <td>{{DescriptionName}}</td>
+                    <td>{{DetailedDuties}}</td>
+                    <td>{{DateRange}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="contactDetails">
+            <ion-icon name="call"></ion-icon>
+            <h2>Contact Info</h2> <br />
+            {{!-- List contact details - email address, linkedin?, etc. --}}
+        </div>
+
+        <div class="contactDetails"> 
+            <p>Kate Pilbean</p>
+        </div>
         
-         <p>Kate Pilbean</p>
-         <p>Email: katepilbean@gmail.com</p>
-         <p>LinkedIn: https://www.linkedin.com/in/katepilbean/</p>
-    </div>
+        <div class="contactDetails">
+            <p>Email: katepilbean@gmail.com</p>
+        </div>
 
-    <div class="requestDetails">     
-         <ion-icon name="mail"></ion-icon>       
-         <h2>Submit a Request</h2>
-         <br />
-    </div>
+        <div class="contactDetails">
+            <p>LinkedIn: https://www.linkedin.com/in/katepilbean/</p>
+        </div>
 
-    <div class="contactForm">
-         {{!-- Fields to enter name, email, & message with submit button. --}}
-         <form method="post" action="/contactme">
-            <label>Enter Your Name<br>
-            <input type="text" name="firstName" placeholder="First Name" required>
-            <input type="text" name="lastName" placeholder="Last Name" required><br>
-            <label>Enter Your Email Address<br>
-            <input type="email" email="emailAddress" placeholder="Email Address" required><br>
-            <label>Enter Your Message<br>
-            <input type="text" name="message" placeholder="Enter your message for Kate." required><br>
-            <input type="submit" value="Contact Kate">
-        </form>
-    </div>
+        <div class="requestDetails">     
+            <ion-icon name="mail"></ion-icon>       
+            <h2>Submit a Request</h2>
+            <br />
+        </div>
 
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    <script src="/src/app.js"></script>
+        {{!-- Fields to enter name, email, & message with submit button. --}}
+        <div class="contactForm">
+            <form method="post" action="/contactme">
+                <label>Enter Your Name<br>
+                <input type="text" name="firstName" placeholder="First Name" required>
+                <input type="text" name="lastName" placeholder="Last Name" required><br>
+                <label>Enter Your Email Address<br>
+                <input type="email" email="emailAddress" placeholder="Email Address" required><br>
+                <label>Enter Your Message<br>
+                <input type="text" name="message" placeholder="Enter your message for Kate." required><br>
+                <input type="submit" value="Contact Kate">
+            </form>
+        </div>
 
-</body>
+        <script src="/SQL-DB/EducationDB.db"></script>
+        <script src="/SQL-DB/ExperienceDB.db"></script>
+        <script src="/SQL-DB/ProjectsDB.db"></script>
+        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <script src="/src/app.js"></script>
 
+    </body>
 </html>
