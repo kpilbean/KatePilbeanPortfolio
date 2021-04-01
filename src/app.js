@@ -57,17 +57,16 @@ const EducationDB = new sqlite3.Database('./SQL-DB/EducationDB.db', (err) => {
 });
 module.exports = EducationDB;
 
-index: (req,res) => {
-    let sql = 'SELECT *'
-        sql += 'FROM Education'
+app.get('/educationDetails', (req,res) => {
+    const EducationSQL = 'SELECT * FROM Education';
 
-    EducationDB.all(sql, [], (error, rows) => {
+    EducationDB.all(EducationSQL, [], (error, rows) => {
         if (error){
             console.log(error);
         }
-        res.render('admin/index', {Education:rows});
+        res.render( {Education:rows} );
     });
-};
+})
 
 // Projects Section
 const ProjectsDB = new sqlite3.Database('./SQL-DB/ProjectsDB.db', (err) => {
@@ -76,20 +75,20 @@ const ProjectsDB = new sqlite3.Database('./SQL-DB/ProjectsDB.db', (err) => {
     } else {
         console.log('Connected to the ProjectsDB SQLite database.');
     }
-});
+})
+
 module.exports = ProjectsDB;
 
-index: (req,res) => {
-    let sql = 'SELECT *'
-        sql += 'FROM Projects'
+app.get('/projectsDetails', (req,res) => {
+    const ProjectsSQL = 'SELECT * FROM Projects';
 
-    ProjectsDB.all(sql, [], (error, rows) => {
+    ProjectsDB.all(ProjectsSQL, [], (error, rows) => {
         if (error){
             console.log(error);
         }
-        res.render('admin/index', {Projects:rows});
+        res.render( {Projects:rows} );
     });
-};
+})
 
 // Experience Section
 const ExperienceDB = new sqlite3.Database('./SQL-DB/ExperienceDB.db', (err) => {
@@ -98,20 +97,19 @@ const ExperienceDB = new sqlite3.Database('./SQL-DB/ExperienceDB.db', (err) => {
     } else {
         console.log('Connected to the ExperienceDB SQLite database.');
     }
-});
+})
 module.exports = ExperienceDB;
 
-index: (req,res) => {
-    let sql = 'SELECT *'
-        sql += 'FROM Experience'
+app.get('/experienceDetails', (req,res) => {
+    const ExperienceSQL = 'SELECT * FROM Experience';
 
-        ExperienceDB.all(sql, [], (error, rows) => {
-            if (error){
-                console.log(error);
-            }
-            res.render('admin/index', {Experience:rows});
-        });
-};
+    ExperienceDB.all(ExperienceSQL, [], (error, rows) => {
+        if (error){
+            console.log(error);
+        }
+        res.render( {Experience:rows} );
+    });
+})
 
 // LocalHost Setup
 app.listen(port, () => {
