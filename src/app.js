@@ -22,6 +22,16 @@ app.get('/', (req, res) => {
 
 // Education, Projects, Experience Tables from SQLite DBs & Tests
 const sqlite3 = require('sqlite3').verbose();
+// const assert = require('assert');
+
+// describe('Unit Test', function () {
+//     it('should return number of charachters in a string', function () {
+//            assert.equal("Hello".length, 4);
+//        });
+//     it('should return first charachter of the string', function () {
+//            assert.equal("Hello".charAt(0), 'H');
+//        });
+//    });
 
 // Education Section
 const EducationDB = new sqlite3.Database('./SQL-DB/EducationDB.db', (err) => {
@@ -43,6 +53,12 @@ app.get("/education", (req, res) => {
         }
     });
 })
+
+function EducationTest () {
+    EducationId = 1,
+    SchoolName = "Bellarmine University"
+};
+module.exports.EducationTest = EducationTest;
 
 // app.post("/educationDetails", (req, res) => {
 //     const EduInput = new EducationDetails(req.body);
@@ -77,6 +93,12 @@ app.get('/projectsDetails', (req, res) => {
     });
 })
 
+function ProjectsTest () {
+    ProjectId = 1,
+    ProjectName = "JPs Porcelain Punishers"
+};
+module.exports.ProjectsTest = ProjectsTest;
+
 // Experience Section
 const ExperienceDB = new sqlite3.Database('./SQL-DB/ExperienceDB.db', (err) => {
     if (err) {
@@ -97,6 +119,12 @@ app.get("/experienceDetails", (req, res) => {
         }
     });
 })
+
+function ExperienceTest () {
+    ExperienceId = 1,
+    ExperienceName = "City of Creekside"
+};
+module.exports.ExperienceTest = ExperienceTest;
 
 
 // MongoDB Contact Request Form & Test
