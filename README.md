@@ -10,5 +10,6 @@ For the Full-Stack JavaScript 2 CODE Louisville class project, I plan to use the
 2. "Education" section pulls info from a SQLite database. Tests that database opens and pulls first couple objects of info successfully.
 3. "Projects" section pulls info from a SQLite database. Tests that database opens and pulls first couple objects of info successfully.
 4. "Experience" section pulls info from a SQLite database. Tests that database opens and pulls first couple objects of info successfully.
+5. Tests that project is running on localhost:3000 as well as successful connections to all three SQL databases and returns console log messages indicating successful attempts.
 
 To easily access this site, you can run it locally; the site will run on localhost port 3000. This site uses node, express, Mocha, Chai, SQLite, and MongoDB(running on localhost 27017).
