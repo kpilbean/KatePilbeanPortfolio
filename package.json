@@ -4,7 +4,7 @@
   "description": "My portfolio website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha src/app.test.js -w"
     "start": "nodemon src/app.js -e js, hbs"
   },
   "repository": {
