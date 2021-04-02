@@ -20,10 +20,90 @@ app.get('/', (req, res) => {
 });
 
 
+// Education, Projects, Experience Tables from SQLite DBs & Tests
+const sqlite3 = require('sqlite3').verbose();
+
+// Education Section
+const EducationDB = new sqlite3.Database('./SQL-DB/EducationDB.db', (err) => {
+    if (err) {
+        return console.error(err.message);
+    } else {
+        console.log('Connected to the EducationDB SQLite database.');
+    }
+})
+module.exports = EducationDB;
+
+app.get("/education", (req, res) => {
+    const EducationSQL = 'SELECT * FROM Education';
+    EducationDB.all(EducationSQL, [], (error, rows) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render('index', {Education:rows} );
+        }
+    });
+})
+
+// app.post("/educationDetails", (req, res) => {
+//     const EduInput = new EducationDetails(req.body);
+//     EduInput.save()
+//         .then(item => {
+//             res.send("Thank you! Your education details were successfully submitted.");
+//         })
+//         .catch(err => {
+//             res.send(400).send("I'm sorry, your submission was unsuccessful.");
+//         });
+// });
+
+
+// Projects Section
+const ProjectsDB = new sqlite3.Database('./SQL-DB/ProjectsDB.db', (err) => {
+    if (err) {
+        return console.error(err.message);
+    } else {
+        console.log('Connected to the ProjectsDB SQLite database.');
+    }
+})
+module.exports = ProjectsDB;
+
+app.get('/projectsDetails', (req, res) => {
+    const ProjectsSQL = 'SELECT * FROM Projects';
+    ProjectsDB.all(ProjectsSQL, [], (error, rows) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render('index', {Projects:rows} );
+        }
+    });
+})
+
+// Experience Section
+const ExperienceDB = new sqlite3.Database('./SQL-DB/ExperienceDB.db', (err) => {
+    if (err) {
+        return console.error(err.message);
+    } else {
+        console.log('Connected to the ExperienceDB SQLite database.');
+    }
+})
+module.exports = ExperienceDB;
+
+app.get("/experienceDetails", (req, res) => {
+    const ExperienceSQL = 'SELECT * FROM Experience';
+    ExperienceDB.all(ExperienceSQL, [], (error, rows) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render('index', {Experience:rows} );
+        }
+    });
+})
+
+
 // MongoDB Contact Request Form & Test
 const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/contact-requests");
+mongoose.Promise = global.Promise;
+
 const contactSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
@@ -40,76 +120,9 @@ app.post("/contactMe", (req, res) => {
         })
         .catch(err => {
             res.send(400).send("I'm sorry, your submission was unsuccessful.");
-        });
+        })
 });
 
-
-// Education, Projects, Experience Tables from SQLite DBs & Tests
-const sqlite3 = require('sqlite3').verbose();
-
-// Education Section
-const EducationDB = new sqlite3.Database('./SQL-DB/EducationDB.db', (err) => {
-    if (err) {
-        return console.error(err.message);
-    } else {
-        console.log('Connected to the EducationDB SQLite database.');
-    }
-});
-module.exports = EducationDB;
-
-app.get('/educationDetails', (req,res) => {
-    const EducationSQL = 'SELECT * FROM Education';
-
-    EducationDB.all(EducationSQL, [], (error, rows) => {
-        if (error){
-            console.log(error);
-        }
-        res.render( {Education:rows} );
-    });
-})
-
-// Projects Section
-const ProjectsDB = new sqlite3.Database('./SQL-DB/ProjectsDB.db', (err) => {
-    if (err) {
-        return console.error(err.message);
-    } else {
-        console.log('Connected to the ProjectsDB SQLite database.');
-    }
-})
-
-module.exports = ProjectsDB;
-
-app.get('/projectsDetails', (req,res) => {
-    const ProjectsSQL = 'SELECT * FROM Projects';
-
-    ProjectsDB.all(ProjectsSQL, [], (error, rows) => {
-        if (error){
-            console.log(error);
-        }
-        res.render( {Projects:rows} );
-    });
-})
-
-// Experience Section
-const ExperienceDB = new sqlite3.Database('./SQL-DB/ExperienceDB.db', (err) => {
-    if (err) {
-        return console.error(err.message);
-    } else {
-        console.log('Connected to the ExperienceDB SQLite database.');
-    }
-})
-module.exports = ExperienceDB;
-
-app.get('/experienceDetails', (req,res) => {
-    const ExperienceSQL = 'SELECT * FROM Experience';
-
-    ExperienceDB.all(ExperienceSQL, [], (error, rows) => {
-        if (error){
-            console.log(error);
-        }
-        res.render( {Experience:rows} );
-    });
-})
 
 // LocalHost Setup
 app.listen(port, () => {

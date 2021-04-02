@@ -1,5 +1,5 @@
 CREATE TABLE [Education] (  
-    [EducationId] INTEGER  PRIMARY KEY NOT NULL,  
+    [EducationId] INTEGER  NOT NULL PRIMARY KEY,  
     [SchoolName] NVARCHAR(50) NOT NULL,  
     [CertificateName] NVARCHAR(50) NOT NULL,
     [GradDate] DATE NOT NULL
